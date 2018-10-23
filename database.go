@@ -18,7 +18,7 @@ package main
 
 import (
 	"errors"
-	"./plugin"
+	"plugin"
 )
 
 /*
