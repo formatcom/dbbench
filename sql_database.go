@@ -202,33 +202,3 @@ func checkSQLQuery(q string) error {
 	}
 	return nil
 }
-
-func mySQLDataSourceName(cc *ConnectionConfig) string {
-	return fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?%s",
-		firstString(cc.Username, "root"),
-		firstString(cc.Password, ""),
-		firstString(cc.Host, "localhost"),
-		firstInt(cc.Port, 3306),
-		firstString(cc.Database, ""),
-		firstString(cc.Params, "allowAllFiles=true&interpolateParams=true"))
-}
-
-func postgresDataSourceName(cc *ConnectionConfig) string {
-	return fmt.Sprintf("postgres://%s:%s@%s:%d/%s?%s",
-		firstString(cc.Username, "root"),
-		firstString(cc.Password, ""),
-		firstString(cc.Host, "localhost"),
-		firstInt(cc.Port, 5432),
-		firstString(cc.Database, ""),
-		firstString(cc.Params, "sslmode=disable"))
-}
-
-func sqlServerDataSourceName(cc *ConnectionConfig) string {
-	return fmt.Sprintf("user id=%s;password=%s;server=%s;port=%d;database=%s;%s",
-		firstString(cc.Username, "root"),
-		firstString(cc.Password, ""),
-		firstString(cc.Host, "localhost"),
-		firstInt(cc.Port, 1433),
-		firstString(cc.Database, ""),
-		firstString(cc.Params, ""))
-}

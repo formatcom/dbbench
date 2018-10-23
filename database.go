@@ -18,6 +18,7 @@ package main
 
 import (
 	"errors"
+	"./plugin"
 )
 
 /*
@@ -89,7 +90,9 @@ type Database interface {
 }
 
 var supportedDatabaseFlavors = map[string]DatabaseFlavor{
-	"mysql":    &sqlDatabaseFlavor{"mysql", mySQLDataSourceName, checkSQLQuery},
-	"mssql":    &sqlDatabaseFlavor{"mssql", sqlServerDataSourceName, checkSQLQuery},
-	"postgres": &sqlDatabaseFlavor{"postgres", postgresDataSourceName, checkSQLQuery},
+	"postgres": &sqlDatabaseFlavor{
+		"postgres",
+		plugin.PGSource,
+		checkSQLQuery
+	},
 }
