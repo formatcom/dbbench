@@ -93,6 +93,6 @@ var supportedDatabaseFlavors = map[string]DatabaseFlavor{
 	"postgres": &sqlDatabaseFlavor{
 		"postgres",
 		plugin.PGSource,
-		checkSQLQuery
+		checkSQLQuery,
 	},
 }
