@@ -18,7 +18,7 @@ package main
 
 import (
 	"errors"
-	"./engine"
+	"dd"
 )
 
 /*
@@ -92,7 +92,7 @@ type Database interface {
 var supportedDatabaseFlavors = map[string]DatabaseFlavor{
 	"postgres": &sqlDatabaseFlavor{
 		"postgres",
-		engine.PGSource,
+		dd.PGSource,
 		checkSQLQuery,
 	},
 }
