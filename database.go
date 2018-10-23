@@ -18,7 +18,7 @@ package main
 
 import (
 	"errors"
-	"engine"
+	"./engine"
 )
 
 /*
